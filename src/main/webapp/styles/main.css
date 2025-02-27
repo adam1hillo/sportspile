@@ -1,0 +1,193 @@
+/* general */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+/* max width for wider screen and centered */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* delete hyperlink decoration */
+a {
+    text-decoration: none;
+}
+
+/* logo to the left, login button to the right */
+
+.navbar {
+    width: 96%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+/* colorful logo */
+.logo {
+    color: #052F42FF;
+    font-size: 2em;
+    font-weight: 400;
+}
+
+/* login button effect */
+.login-button {
+    border: 1px solid #052F42FF;
+    border-radius: 5px;
+    color: #052F42FF;
+    font-size: 0.8em;
+    font-weight: bolder;
+    text-transform: uppercase;
+    padding: 3px 16px;
+    line-height: 24px;
+    letter-spacing: 0.1em;
+}
+
+/* special effect when hovered */
+.login-button:hover {
+    opacity: 80%;
+}
+
+/* deleting default styles, add flexbox, same amount of space for each discipline */
+.disciplines > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+/* each discipline fills the whole space */
+.disciplines > ul > li {
+    flex-grow: 1;
+    padding: 0 0.5em;
+    font-weight: 500;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    background-color: #052F42FF;
+}
+
+/* some transparency from discipline when hovered */
+.disciplines > ul > li:hover {
+    opacity: 80%;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
+}
+
+/* text centered and changed text color */
+.disciplines > ul > li > a {
+    color: inherit;
+    display: block;
+    text-align: center;
+    padding: 0.5em 0;
+}
+
+/* fixed header / disciplines bar*/
+.fixed {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    padding-bottom: 10px;
+
+}
+
+
+img {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+/* frame and spacing for added content */
+.news {
+    border: 1px solid #052F42FF;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 16px;
+}
+
+article:first-of-type {
+    margin-top: 5px;
+}
+
+.news-header {
+    margin: 0;
+    color: #052F42FF;
+}
+
+/* font adjustment for details */
+.news-details {
+    color: #757575;
+    font-size: 0.8rem;
+}
+
+/* hyperlink color and wrap when too long */
+.news-link, .news-link:visited {
+    color: #052F42FF;
+    word-wrap: break-word;
+}
+
+/* voting bar adjustments */
+.news-bar {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.news-votes {
+    display: inline;
+    color: #052F42FF;
+    margin: 0 4px;
+}
+
+.upvote:hover {
+    color: #4CD964;
+}
+
+.downvote:hover {
+    color: #FF3B30;
+}
+
+/* footer adjustment */
+footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
