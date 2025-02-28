@@ -18,12 +18,11 @@ a {
 /* logo to the left, login button to the right */
 
 .navbar {
-    width: 96%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 0;
+    padding: 16px;
 }
 
 /* colorful logo */
@@ -89,15 +88,18 @@ a {
 }
 
 /* fixed header / disciplines bar*/
-.fixed {
+header {
     position: sticky;
     top: 0;
-    background-color: white;
     padding-bottom: 10px;
-
 }
 
+.sticky {
+    background-color: white;
+    border-bottom: 4px solid #052F42FF;
+}
 
+/* banner placement */
 img {
     width: 100%;
     height: auto;
