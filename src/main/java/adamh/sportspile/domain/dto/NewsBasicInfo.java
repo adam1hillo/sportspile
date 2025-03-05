@@ -1,4 +1,4 @@
-package adamh.sportspile.domain.api;
+package adamh.sportspile.domain.dto;
 
 import java.time.LocalDateTime;
 

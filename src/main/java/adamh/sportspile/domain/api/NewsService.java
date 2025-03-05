@@ -1,5 +1,6 @@
 package adamh.sportspile.domain.api;
 
+import adamh.sportspile.domain.dto.NewsBasicInfo;
 import adamh.sportspile.domain.news.News;
 import adamh.sportspile.domain.news.NewsDao;
 
@@ -11,6 +12,13 @@ public class NewsService {
 
     public List<NewsBasicInfo> findAll() {
         return newsDao.findAll()
+                .stream()
+                .map(NewsMapper::map)
+                .toList();
+    }
+
+    public List<NewsBasicInfo> findByDiscipline(int disciplineId) {
+        return newsDao.findByDiscipline(disciplineId)
                 .stream()
                 .map(NewsMapper::map)
                 .toList();

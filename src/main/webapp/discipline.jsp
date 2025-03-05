@@ -25,20 +25,12 @@
                 <i class="fa-solid fa-user-large"></i>
             </a>
         </nav>
-        <aside class="disciplines">
-            <ul>
-                <c:forEach var="discipline" items="${requestScope.disciplines}">
-                    <li><a href="${pageContext.request.contextPath}/discipline?id=${discipline.id}">${discipline.name}</a></li>
-                </c:forEach>
-            </ul>
-        </aside>
     </header>
     <div class="rest">
-        <div>
-            <img src="./images/banner.jpg" alt="">
-        </div>
         <main>
-            <c:forEach var="news" items="${requestScope.news}">
+            <h1>${requestScope.discipline.name}</h1>
+            <p>${requestScope.discipline.description}</p>
+            <c:forEach var="news" items="${requestScope.allNews}">
                 <article class="news">
                     <h2 class="news-header"><c:out value="${news.title}"/></h2>
                     <p class="news-details">Dodane przez: Mietek, ${news.dateAdded.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))}</p>

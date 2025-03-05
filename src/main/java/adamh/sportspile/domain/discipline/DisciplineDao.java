@@ -1,78 +1,74 @@
-package adamh.sportspile.domain.news;
+package adamh.sportspile.domain.discipline;
 
 import adamh.sportspile.config.DataSourceProvider;
 
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-public class NewsDao {
+public class DisciplineDao {
 
     private final DataSource dataSource;
 
-    public NewsDao() {
+    public DisciplineDao() {
         try {
-            this.dataSource = DataSourceProvider.getDataSource();
+            dataSource = DataSourceProvider.getDataSource();
         } catch (NamingException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public List<News> findAll() {
+    public List<Discipline> findAll() {
         final String sql = """
                 SELECT
-                    id, title, url, description, date_added, discipline_id
+                    id, name, description
                 FROM
-                    news
+                    discipline
                 """;
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement()) {
+            List<Discipline> allDisciplines = new ArrayList<>();
             ResultSet resultSet = statement.executeQuery(sql);
-            List<News> allNews = new ArrayList<>();
             while (resultSet.next()) {
-                News news = mapRow(resultSet);
-                allNews.add(news);
+                Discipline discipline = mapRow(resultSet);
+                allDisciplines.add(discipline);
             }
-            return allNews;
+            return allDisciplines;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public List<News> findByDiscipline(int disciplineId) {
+    public Optional<Discipline> findById(int disciplineId) {
         final String sql = """
                 SELECT
-                    id, title, url, description, date_added, discipline_id
+                    id, name, description
                 FROM
-                    news
+                    discipline
                 WHERE
-                    discipline_id = ?
+                    id = ?
                 """;
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, disciplineId);
-            List<News> newsList = new ArrayList<>();
             ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                News news = mapRow(resultSet);
-                newsList.add(news);
+            if (resultSet.next()) {
+                Discipline discipline = mapRow(resultSet);
+                return Optional.of(discipline);
+            } else {
+                return Optional.empty();
             }
-            return newsList;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-
-    private News mapRow(ResultSet resultSet) throws SQLException {
+    private Discipline mapRow(ResultSet resultSet) throws SQLException {
         int id = resultSet.getInt("id");
-        String title = resultSet.getString("title");
-        String url = resultSet.getString("url");
+        String name = resultSet.getString("name");
         String description = resultSet.getString("description");
-        LocalDateTime dateAdded = resultSet.getObject("date_added", LocalDateTime.class);
-        int disciplineId = resultSet.getInt("discipline_id");
-        return new News(id,title, url, description, dateAdded, disciplineId);
+        return new Discipline(id, name, description);
     }
 }

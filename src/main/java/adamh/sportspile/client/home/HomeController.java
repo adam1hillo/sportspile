@@ -1,6 +1,8 @@
 package adamh.sportspile.client.home;
 
-import adamh.sportspile.domain.api.NewsBasicInfo;
+import adamh.sportspile.domain.api.DisciplineService;
+import adamh.sportspile.domain.dto.DisciplineName;
+import adamh.sportspile.domain.dto.NewsBasicInfo;
 import adamh.sportspile.domain.api.NewsService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,9 +17,12 @@ import java.util.List;
 public class HomeController extends HttpServlet {
 
     private final NewsService newsService = new NewsService();
+    private final DisciplineService disciplineService = new DisciplineService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<DisciplineName> allDisciplines = disciplineService.findAllDisciplines();
+        request.setAttribute("disciplines", allDisciplines);
         List<NewsBasicInfo> allNews = newsService.findAll();
         request.setAttribute("news", allNews);
         request.getRequestDispatcher("/index.jsp").forward(request, response);
