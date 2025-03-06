@@ -1,6 +1,7 @@
 package adamh.sportspile.domain.news;
 
 import adamh.sportspile.config.DataSourceProvider;
+import adamh.sportspile.domain.common.BaseDao;
 
 import javax.naming.NamingException;
 import javax.sql.DataSource;
@@ -9,17 +10,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewsDao {
+public class NewsDao extends BaseDao {
 
-    private final DataSource dataSource;
 
-    public NewsDao() {
-        try {
-            this.dataSource = DataSourceProvider.getDataSource();
-        } catch (NamingException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     public List<News> findAll() {
         final String sql = """
@@ -28,7 +21,7 @@ public class NewsDao {
                 FROM
                     news
                 """;
-        try (Connection connection = dataSource.getConnection();
+        try (Connection connection = getConnection();
              Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(sql);
             List<News> allNews = new ArrayList<>();
@@ -51,7 +44,7 @@ public class NewsDao {
                 WHERE
                     discipline_id = ?
                 """;
-        try (Connection connection = dataSource.getConnection();
+        try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, disciplineId);
             List<News> newsList = new ArrayList<>();

@@ -25,6 +25,6 @@ public class HomeController extends HttpServlet {
         request.setAttribute("disciplines", allDisciplines);
         List<NewsBasicInfo> allNews = newsService.findAll();
         request.setAttribute("news", allNews);
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/views/index.jsp").forward(request, response);
     }
 }

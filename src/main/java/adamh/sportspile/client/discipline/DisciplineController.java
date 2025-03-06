@@ -24,7 +24,7 @@ public class DisciplineController extends HttpServlet {
         DisciplineFullInfo discipline = disciplineService.findById(disciplineId).orElseThrow();
         request.setAttribute("discipline", discipline);
         List<NewsBasicInfo> allNewsByDiscipline = newsService.findByDiscipline(disciplineId);
-        request.setAttribute("allNews", allNewsByDiscipline);
-        request.getRequestDispatcher("/discipline.jsp").forward(request, response);
+        request.setAttribute("news", allNewsByDiscipline);
+        request.getRequestDispatcher("WEB-INF/views/discipline.jsp").forward(request, response);
     }
 }

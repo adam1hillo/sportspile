@@ -1,6 +1,7 @@
 package adamh.sportspile.domain.discipline;
 
 import adamh.sportspile.config.DataSourceProvider;
+import adamh.sportspile.domain.common.BaseDao;
 
 import javax.naming.NamingException;
 import javax.sql.DataSource;
@@ -9,17 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class DisciplineDao {
+public class DisciplineDao extends BaseDao {
 
-    private final DataSource dataSource;
-
-    public DisciplineDao() {
-        try {
-            dataSource = DataSourceProvider.getDataSource();
-        } catch (NamingException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     public List<Discipline> findAll() {
         final String sql = """
@@ -28,7 +20,7 @@ public class DisciplineDao {
                 FROM
                     discipline
                 """;
-        try (Connection connection = dataSource.getConnection();
+        try (Connection connection = getConnection();
              Statement statement = connection.createStatement()) {
             List<Discipline> allDisciplines = new ArrayList<>();
             ResultSet resultSet = statement.executeQuery(sql);
@@ -51,7 +43,7 @@ public class DisciplineDao {
                 WHERE
                     id = ?
                 """;
-        try (Connection connection = dataSource.getConnection();
+        try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, disciplineId);
             ResultSet resultSet = statement.executeQuery();

@@ -1,0 +1,10 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<nav class="navbar">
+    <a href="${pageContext.request.contextPath}" class="logo">
+        <i class="fa-solid fa-person-running"></i>
+        Sportspile
+    </a>
+    <a href="#" class="login-button">Sign in
+        <i class="fa-solid fa-user-large"></i>
+    </a>
+</nav>
