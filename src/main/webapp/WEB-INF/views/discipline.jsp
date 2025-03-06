@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sportspile</title>
+    <title>${requestScope.discipline.name} - Sportspile</title>
     <%@include file="../segments/head.jspf"%>
 </head>
 <body>

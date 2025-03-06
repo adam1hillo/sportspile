@@ -28,7 +28,8 @@
         <main>
             <%@ include file="../segments/news-list.jspf"%>
         </main>
-        <%@ include file="../segments/footer.jspf"%></div>
+        <%@ include file="../segments/footer.jspf"%>
+    </div>
 </div>
 </body>
 </html>

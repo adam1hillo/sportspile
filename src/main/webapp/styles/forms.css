@@ -1,0 +1,35 @@
+/* Frame, margins, justify and max width */
+
+.user-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #052F42FF;
+    border-radius: 5px;
+    margin: 50px auto;
+    max-width: 400px;
+}
+
+/* margins and font size */
+
+.user-form > * {
+    font-size: 1.2em;
+    margin: 16px;
+}
+
+/* bigger inputs and button for better visibility on mobile devices */
+
+.user-form > input, .user-form > button {
+    padding: 20px;
+    border: 1px solid #052F42FF;
+    border-radius: 5px;
+}
+
+.user-form-title {
+    margin: 16px auto;
+}
+
+.user-form-button {
+    color: white;
+    background-color: #052F42FF;
+}
