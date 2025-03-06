@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public class DisciplineService {
 
-    private DisciplineDao disciplineDao = new DisciplineDao();
+    private final DisciplineDao disciplineDao = new DisciplineDao();
 
     public List<DisciplineName> findAllDisciplines() {
         return disciplineDao.findAll()

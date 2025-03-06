@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>Register - Sportspile</title>
     <%@ include file="../segments/head.jspf"%>
-    <link rel="stylesheet" href="${pageContext.request.cntextPath}/styles/forms.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/forms.css">
 </head>
 <body>
 <div class="container">
