@@ -21,8 +21,8 @@ public class HomeController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<DisciplineName> allDisciplines = disciplineService.findAllDisciplines();
-        request.setAttribute("disciplines", allDisciplines);
+        List<DisciplineName> disciplines = disciplineService.findAllDisciplines();
+        request.setAttribute("disciplines", disciplines);
         List<NewsBasicInfo> allNews = newsService.findAll();
         request.setAttribute("news", allNews);
         request.getRequestDispatcher("WEB-INF/views/index.jsp").forward(request, response);

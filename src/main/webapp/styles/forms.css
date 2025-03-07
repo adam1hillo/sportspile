@@ -25,10 +25,12 @@
     border-radius: 5px;
 }
 
+/* title justified */
 .user-form-title {
     margin: 16px auto;
 }
 
+/* button color */
 .user-form-button {
     color: white;
     background-color: #052F42FF;

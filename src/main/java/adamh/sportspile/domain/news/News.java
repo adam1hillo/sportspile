@@ -8,19 +8,29 @@ public class News {
     private String url;
     private String description;
     private LocalDateTime dateAdded;
-    private Integer discipline_id;
+    private Integer disciplineId;
+    private Integer userId;
 
-    public News(Integer id, String title, String url, String description, LocalDateTime dateAdded, Integer discipline_id) {
+    public News(Integer id, String title, String url, String description, LocalDateTime dateAdded, Integer disciplineId, Integer userId) {
+        this(title, url, description, dateAdded, disciplineId, userId);
         this.id = id;
+    }
+
+    public News(String title, String url, String description, LocalDateTime dateAdded, Integer disciplineId, Integer userId) {
         this.title = title;
         this.url = url;
         this.description = description;
         this.dateAdded = dateAdded;
-        this.discipline_id = discipline_id;
+        this.disciplineId = disciplineId;
+        this.userId = userId;
     }
 
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -39,7 +49,11 @@ public class News {
         return dateAdded;
     }
 
-    public Integer getDiscipline_id() {
-        return discipline_id;
+    public Integer getDisciplineId() {
+        return disciplineId;
+    }
+
+    public Integer getUserId() {
+        return userId;
     }
 }

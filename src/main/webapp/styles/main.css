@@ -158,6 +158,21 @@ article:first-of-type {
     color: #FF3B30;
 }
 
+.news-add-button {
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #052F42FF;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 3px #999;
+    border-radius: 5px;
+}
+
 /* footer adjustment */
 footer {
     margin-top: 20px;
