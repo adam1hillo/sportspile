@@ -8,11 +8,11 @@
         <a href="<c:out value="${news.url}"/>" target="_blank" class="news-link"><c:out value="${news.url}"/></a>
         <p><c:out value="${news.description}"/></p>
         <section class="news-bar">
-            <a href="#" class="news-link upvote">
+            <a href="${pageContext.request.contextPath}/news/vote?id=${news.id}&type=UP" class="news-link upvote">
                 <i class="fa-regular fa-thumbs-up news-upvote"></i>
             </a>
             <p class="news-votes">32</p>
-            <a href="#" class="news-link downvote">
+            <a href="${pageContext.request.contextPath}/news/vote?id=${news.id}&type=DOWN" class="news-link downvote">
                 <i class="fa-regular fa-thumbs-down news-downvote"></i>
             </a>
         </section>

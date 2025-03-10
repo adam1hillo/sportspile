@@ -15,7 +15,7 @@
         <%@ include file="../segments/nav.jspf"%>
     </header>
     <div class="rest">
-        <form action="${pageContext.request.contextPath}//news/add" method="post" class="news-form">
+        <form action="${pageContext.request.contextPath}/news/add" method="post" class="news-form">
             <h2 class="news-form-title">Add something new</h2>
             <input name="title" placeholder="Title" required>
             <input name="url" placeholder="URL" type="url" required>

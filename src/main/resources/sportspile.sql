@@ -32,3 +32,12 @@ CREATE TABLE IF NOT EXISTS news (
     user_id INT NOT NULL,
     FOREIGN KEY (disciplineId) REFERENCES discipline(id),
     FOREIGN KEY (user_id) REFERENCES user(id));
+
+CREATE TABLE IF NOT EXISTS vote (
+    user_id INT NOT NULL,
+    news_id INT NOT NULL,
+    type ENUM('UP', 'DOWN') NOT NULL,
+    date_added DATETIME NOT NULL,
+    PRIMARY KEY (user_id, news_id),
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (news_id) REFERENCES news(id));

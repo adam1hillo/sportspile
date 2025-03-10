@@ -41,6 +41,7 @@ public class NewsService {
     private static class NewsMapper {
         static NewsBasicInfo map(News news) {
             return new NewsBasicInfo(
+                    news.getId(),
                     news.getTitle(),
                     news.getUrl(),
                     news.getDescription(),
