@@ -4,7 +4,7 @@
 <c:forEach var="news" items="${requestScope.news}">
     <article class="news">
         <h2 class="news-header"><c:out value="${news.title}"/></h2>
-        <p class="news-details">Dodane przez: Mietek, ${news.dateAdded.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))}</p>
+        <p class="news-details">Posted by: ${news.author}, ${news.dateAdded.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))}</p>
         <a href="<c:out value="${news.url}"/>" target="_blank" class="news-link"><c:out value="${news.url}"/></a>
         <p><c:out value="${news.description}"/></p>
         <section class="news-bar">

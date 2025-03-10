@@ -45,7 +45,10 @@ public class NewsService {
                     news.getUrl(),
                     news.getDescription(),
                     news.getDateAdded(),
-                    voteDao.voteCountByNewsId(news.getId())
+                    voteDao.voteCountByNewsId(news.getId()),
+                    userDao.findById(news.getUserId())
+                            .orElseThrow()
+                            .getUsername()
             );
         }
         News map(NewsSaveRequest saveRequest) {
