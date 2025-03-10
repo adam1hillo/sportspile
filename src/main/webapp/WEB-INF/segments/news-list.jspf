@@ -11,7 +11,7 @@
             <a href="${pageContext.request.contextPath}/news/vote?id=${news.id}&type=UP" class="news-link upvote">
                 <i class="fa-regular fa-thumbs-up news-upvote"></i>
             </a>
-            <p class="news-votes">32</p>
+            <p class="news-votes">${news.voteCount}</p>
             <a href="${pageContext.request.contextPath}/news/vote?id=${news.id}&type=DOWN" class="news-link downvote">
                 <i class="fa-regular fa-thumbs-down news-downvote"></i>
             </a>

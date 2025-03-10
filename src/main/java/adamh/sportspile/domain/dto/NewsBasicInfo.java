@@ -8,13 +8,15 @@ public class NewsBasicInfo {
     private String url;
     private String description;
     private LocalDateTime dateAdded;
+    private int voteCount;
 
-    public NewsBasicInfo(Integer id, String title, String url, String description, LocalDateTime dateAdded) {
+    public NewsBasicInfo(Integer id, String title, String url, String description, LocalDateTime dateAdded, int voteCount) {
         this.id = id;
         this.title = title;
         this.url = url;
         this.description = description;
         this.dateAdded = dateAdded;
+        this.voteCount = voteCount;
     }
 
     public Integer getId() {
@@ -35,5 +37,9 @@ public class NewsBasicInfo {
 
     public LocalDateTime getDateAdded() {
         return dateAdded;
+    }
+
+    public int getVoteCount() {
+        return voteCount;
     }
 }
