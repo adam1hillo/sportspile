@@ -41,3 +41,12 @@ CREATE TABLE IF NOT EXISTS vote (
     PRIMARY KEY (user_id, news_id),
     FOREIGN KEY (user_id) REFERENCES user(id),
     FOREIGN KEY (news_id) REFERENCES news(id));
+
+INSERT INTO
+    discipline (name, description)
+VALUES
+    ("Football", "Here you will find the most recent news from football world. Including latest scores, interviews and transfermarket discoveries"),
+    ("Basketball", "Follow the action of NBA scores, stats and news. Intrested in Euroleague? Best place to post your newest discoveries."),
+    ("Combat Sports", "Want to know who holds the UFC titles ? Check for the upcoming events, MMA, Boxing, K1 or any combat sport you can think of."),
+    ("Winter Sports", "Whether it is Ski Jumping, Skiing or Ice Skating. Share your newest findings and check for the upcoming events."),
+    ("Motor Sport", "Are you a motor sports fan? Looking for speed and adrenaline? Check it out for latest news from F1, WRC or Speedway.");
