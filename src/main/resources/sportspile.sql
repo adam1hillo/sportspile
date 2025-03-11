@@ -24,13 +24,13 @@ CREATE TABLE IF NOT EXISTS user_role (
 
 CREATE TABLE IF NOT EXISTS news (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(80) NOT NULL,
+    title VARCHAR(200) NOT NULL,
     url VARCHAR(500) NOT NULL UNIQUE,
     description VARCHAR(500) NOT NULL,
     date_added DATETIME NOT NULL,
-    disciplineId INT NOT NULL,
+    discipline_id INT NOT NULL,
     user_id INT NOT NULL,
-    FOREIGN KEY (disciplineId) REFERENCES discipline(id),
+    FOREIGN KEY (discipline_id) REFERENCES discipline(id),
     FOREIGN KEY (user_id) REFERENCES user(id));
 
 CREATE TABLE IF NOT EXISTS vote (
